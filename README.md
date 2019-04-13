@@ -1,2 +1,3 @@
 # sendshit-go
-Package to upload files to sendshit
+
+Golang package to encrypt and upload files to sendsh.it
