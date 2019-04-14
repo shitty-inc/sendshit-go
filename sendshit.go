@@ -35,7 +35,7 @@ func GenerateRandomString(size int) (string, error) {
 // EncryptFile Encrypts a file with a key
 func EncryptFile(name string, data []byte, key string) (string, error) {
 	var encodedStr string
-	cipher, err := triplesec.NewCipher([]byte(key), nil, triplesec.LatestVersion)
+	cipher, err := triplesec.NewCipher([]byte(key), nil, 3)
 
 	if err != nil {
 		return encodedStr, err
