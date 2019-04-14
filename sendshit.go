@@ -24,16 +24,16 @@ type Response struct {
 	ID string `json:"id"`
 }
 
-// Generate a random hex string
-func generateRandomString(size int) (string, error) {
+// GenerateRandomString Generates a random hex string
+func GenerateRandomString(size int) (string, error) {
 	bytes := make([]byte, size)
 	_, err := rand.Read(bytes)
 
 	return hex.EncodeToString(bytes), err
 }
 
-// Encrypt the file
-func encryptFile(name string, data []byte, key string) (string, error) {
+// EncryptFile Encrypts a file with a key
+func EncryptFile(name string, data []byte, key string) (string, error) {
 	var encodedStr string
 	cipher, err := triplesec.NewCipher([]byte(key), nil, triplesec.LatestVersion)
 
@@ -61,8 +61,8 @@ func encryptFile(name string, data []byte, key string) (string, error) {
 	return encodedStr, nil
 }
 
-// Uploaded the encrypted data to the API
-func uploadFile(encryptedData string) (Response, error) {
+// UploadFile Uploads the encrypted file data to the API
+func UploadFile(encryptedData string) (Response, error) {
 	var response Response
 	bodyBuf := &bytes.Buffer{}
 	bodyWriter := multipart.NewWriter(bodyBuf)
