@@ -5,7 +5,7 @@ import (
 )
 
 func TestRandomness(t *testing.T) {
-	key, err := generateRandomString(24)
+	key, err := GenerateRandomString(24)
 
 	if err != nil {
 		t.Fatal(err)
